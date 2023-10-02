@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Reservas de Hotel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+    </head>
+    <body>
+        <h1>Reservas de Hotel</h1>
+        <form action="../ReservasHotel" method="post">
+            <div class="apartado1">
+                <fieldset>
+                    <legend>Datos Personales</legend>              
+                    <br>
+                    <label>*Nombre</label>
+                    <input class="nombre" type="text" name="nombre" placeholder="Ejem: Luis">
+                    <br>               
+                    <label>*Apellidos</label>
+                    <input class="apellidos" type="text" name="apellidos" placeholder="Ejem: Perez">
+                    <br>  
+                    <label>*Tel&eacute;fono de contacto</label>
+                    <input class="telefono" type="text" name="telefono" placeholder="Ejem: 667 888 908">
+                    <br>                
+                    <label>*Email</label>
+                    <input class="email" type="email" name="email" placeholder="Ejem: luisPerez@gmail.com">
+                    <br>
+                </fieldset>
+            </div>
+            <div class = "apartado2">
+                <fieldset>
+                    <legend>*N&uacute;mero de noches</legend>
+                    <input class="numero" type="number" name="numero" placeholder="1">
+                </fieldset>
+            </div>
+            <div class = "apartado3"><!-- comment -->
+                <fieldset>
+                    <legend>*Fecha de Entrada</legend>
+                    <label>D&iacute;a  :</label>
+                    <select name="dia">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>               
+                    </select>
+                    <label>Mes  :</label>
+                    <select name="mes">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>              
+                    </select>
+                </fieldset>
+            </div>     
+            <div class = "apartado4">
+                <fieldset>
+                    <legend>*Tipo de Habitacion</legend>
+                    <input type="radio" name="tipo" value="simple" checked>Habitaci&oacute;n simple
+                    <input type="radio" name="tipo" value="doble">Habitaci&oacute;n doble
+                    <input type="radio" name="tipo" value="matrimonio">Habitaci&oacute;n matrimonio
+                </fieldset>
+            </div>
+            <div class = "apartado5">
+                <fieldset>
+                   <legend>Forma de Estancia</legend>
+                   <input type="checkbox" name="regimen" value="desayuno" checked>Desayuno
+                    <input type="checkbox" name="regimen" value="comida">Comida
+                    <input type="checkbox" name="regimen" value="cena">Cena
+                    <input type="checkbox" name="regimen" value="cama">Cama Supletoria
+                </fieldset> 
+            </div>
+            <div class="apartado6">
+                <fieldset>
+                    <legend id="comentario">Comentarios</legend>
+                    <br>
+                    <textarea  name="comenta" rows="3" cols="50"></textarea>
+                    <br>
+                </fieldset>
+            </div>
+            <br>
+            <input type="submit" name="btnEnviar" value="Enviar">
+            <input type="button" name="Limpiar" value="Limpiar">
+        </form>
+    </body>
+</html>
