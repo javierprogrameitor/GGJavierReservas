@@ -16,13 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ReservasHotel", urlPatterns = {"/ReservasHotel"})
 public class ReservasHotel extends HttpServlet {
 
-    private final String[] error = {"El nombre es obligatorio", "El apellido es obligatorio", "La telefono esta mal introducido", "Email incorrecto",
-        "Numero no valido", "Fecha incorrecta"};
-    private Enumeration<String> parametros;
-
-    private final String[] tp = {"simple", "doble", "matrimonio"};
-    private final String[] forma = {"desayuno", "comida", "cena", "cama"};
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,6 +46,14 @@ public class ReservasHotel extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        String[] error = {"El nombre es obligatorio", "El apellido es obligatorio", "La telefono esta mal introducido", "Email incorrecto",
+            "Numero no valido", "Fecha incorrecta"};
+        Enumeration<String> parametros;
+
+        String[] tp = {"simple", "doble", "matrimonio"};
+        String[] forma = {"desayuno", "comida", "cena", "cama"};
+
         PrintWriter out = response.getWriter();
         /* TODO output your page here. You may use following sample code. */
         out.println("<!DOCTYPE html>");
@@ -83,11 +84,11 @@ public class ReservasHotel extends HttpServlet {
                 errores = true;
                 tipoError[1] = 1;
             } else if (nombre.equals("telefono") && request.getParameter(nombre).length() == 0
-                &&  validarTelefono(nombre) == true) {
+                    && validarTelefono(nombre) == true) {
                 errores = true;
                 tipoError[2] = 2;
             } else if (nombre.equals("email") && request.getParameter(nombre).length() == 0
-                  &&  validarEmail(nombre) == true) {
+                    && validarEmail(nombre) == true) {
                 errores = true;
                 tipoError[3] = 3;
             } else if (nombre.equals("numero") && request.getParameter(nombre).length() == 0) {
@@ -224,9 +225,9 @@ public class ReservasHotel extends HttpServlet {
                         }
                     }
                 }
-                String valor = (encontrado != -1) ? "checked=\"checked\"" : "";
+              //  String valor = (encontrado != -1);                           //? "checked=\"checked\"" : "";
 
-                out.println("<input type=\"checkbox\" name=\"forma\" value=\" " + valor + "\">Desayuno");
+                out.println("<input type=\"checkbox\" name=\"forma\" value=\" " + encontrado + "\">Desayuno");
                 out.println(forma[index]);
                 index++;
             }
@@ -355,9 +356,7 @@ public class ReservasHotel extends HttpServlet {
                 out.println("<option value=\"" + i + "\"" + valor + ">" + i + "</option>");
             }
             out.println("</select>");
-
             out.println("     </fieldset>");
-
             out.println("</div>");
 /////////////////////////////////////////////////////////Fin apartado 3/////////////////////////////////////////////////////////////////////////////
             out.println("<div class=\"apartado4\">");
@@ -449,15 +448,15 @@ public class ReservasHotel extends HttpServlet {
         String texto = dia + mes;
         return texto.matches("^(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$");
     }
-    
+
     private boolean validarTelefono(String telefono) {
-    
+
         return telefono.matches("^[679]\\d{8}$");
     }
-     private boolean validarEmail(String email) {
-          
-         return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-     }
-    
-   
+
+    private boolean validarEmail(String email) {
+
+        return email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
 }
